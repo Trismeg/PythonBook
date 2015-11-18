@@ -1,0 +1,57 @@
+Original created by http://tex.stackexchange.com/questions/83882/how-to-highlight-python-syntax-in-latex-listings-lstinputlistings-command
+I just modified it a little bit to look more like the normal python syntax highlighting known from IDLE.
+Just paste the followeing code before the \begin{document} command in latex. To use the python syntax highlighting do:
+\begin{python}
+	# You put your code here!
+	# This is just an example!
+	for i in range(1,4):
+		print i + " Number"
+\end{python}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+% Custom colors
+\usepackage{color}
+\definecolor{normal}{rgb}{0,0.2,1}
+\definecolor{lib}{rgb}{0.9,0.5,0}
+\definecolor{str}{rgb}{0,0.7,0}
+\definecolor{back}{rgb}{0.8,0.8,0.8}
+
+\usepackage{listings}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+backgroundcolor=\color{back},
+basicstyle=\ttm,
+otherkeywords={*},             % Add keywords here
+keywordstyle=\ttb\color{normal},
+emph={__init__, in,from, import, and,not,or,as },          % Custom highlighting
+emphstyle=\ttb\color{lib},    % Custom highlighting style
+stringstyle=\color{str},
+frame=single,
+numbers=left,                         % Any extra options here
+showstringspaces=false,
+stepnumber=1,
+commentstyle=\color{red}            % 
+}}
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+\pythonstyle
+\lstinputlisting[#1]{#2}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
