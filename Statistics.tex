@@ -1,0 +1,195 @@
+\chapter{Statistics Library}
+
+\section{Introduction}
+This statistics library includes eight functions that we can use to deal with a set of data. \\
+\textit{Tips}
+\begin{itemize}
+\item \textit{Additional libraries are needed}
+\item \textit{Multiple functions are needed for some operations}
+\end{itemize}
+
+\section{Zero}
+
+\begin{equation}
+\centering
+$$\begin{verbatim}
+def zeros(n):
+    a=[]
+    for i in range(n):
+        a=a+[0]
+    return a
+\end{verbatim}
+$$\end{equation}
+This function can be used to create a consecutive and repeating array(all elements are the same). \\
+\noindent \textit{Example:}
+\begin{verbatim}
+def zero(n):
+    a=[]
+    for i in range(n):
+        a=a+[0]
+    return a
+
+print zero(9)
+\end{verbatim} 
+\textit{Output:} 
+\texttt{ [0, 0, 0, 0, 0, 0, 0, 0, 0] }
+
+\section{Summing an array}
+\begin{equation}
+$$\begin{verbatim}
+def sum_array(a):
+    s=0
+    for i in range(len(a)):
+        s=s+a[i]
+    return s
+\end{verbatim}
+$$\end{equation}
+This function can help us to sum up all the elements in an array. \\
+\noindent \textit{Example:} 
+\begin{verbatim}
+a=[1,2,3,4]
+def sum_array(a):
+    s=0
+    for i in range(len(a)):
+        s=s+a[i]
+    return s
+print sum_array(a)
+\end{verbatim} 
+\textit{Output:}
+\texttt{10}
+
+\section{Finding means}
+\begin{equation}
+$$\begin{verbatim}
+def avg(a):
+    return sum_array(a)/len(a)
+\end{verbatim}
+$$\end{equation}
+This function can help us to calculate the mean of all the data in an array, and we need assistance of the sum function. \\
+\noindent \textit{Example:} 
+\begin{verbatim}
+a=[23,19,25,21]
+def sum_array(a):
+    s=0
+    for i in range(len(a)):
+        s=s+a[i]
+    return s
+
+def avg(a):
+    return sum_array(a)/len(a)
+
+print avg(a)
+\end{verbatim} 
+\textit{Output:}
+\texttt{22}
+
+\section{Variance}
+\begin{equation}
+$$\begin{verbatim}
+def var(a):
+    s=0
+    for i in range(len(a)):
+        s=s+a[i]**2
+    m=avg(a)
+    return (s/len(a)-m**2)
+\end{verbatim}
+$$\end{equation}
+This function can help us to find the variance of the data.Also, we need the assistance of the average function. \\
+\noindent \textit{Example:}
+\begin{verbatim}
+a=[23,19,25,21]
+def sum_array(a):
+    s=0
+    for i in range(len(a)):
+        s=s+a[i]
+    return s
+
+def avg(a):
+    return sum_array(a)/len(a)
+
+print avg(a)
+
+def var(a):
+    s=0
+    for i in range(len(a)):
+        s=s+a[i]**2
+    m=avg(a)
+    return (s/len(a)-m**2)
+print var(a)
+\end{verbatim}
+\textit{Output: 5}
+
+\section{Construct an array of random numbers}
+\begin{equation}
+$$\begin{verbatim}
+def rand_array(n,mini,maxi):
+    a=[]
+    for i in range(n):
+        a=a+[random.uniform(mini,maxi)]
+    return a
+\end{verbatim}
+$$\end{equation}
+We can use this function to construct an array filled with random numbers. We need the random library to run the function.Here n represents the number of elements in the array; mini is the minimum value of the elements;maxi is the maximum value
+
+\section{To fill a histogram} \textit{Library "graphics" is needed*}
+\begin{equation}
+$$\begin{verbatim}
+def histogram(mini,maxi,bins,a):
+    h=zeros(bins)
+    w=(maxi-mini)/bins
+    for i in range(len(a)):
+        for j in range(bins):
+            if (a[i]>(mini+j*w))and a[i]<(mini+(j+1)*w):
+                h[j]=h[j]+1
+    return h
+\end{verbatim}
+$$\end{equation}
+The four arguments in parenthesis are decisive for the histogram.
+Here mini represents the minimum value in the data;
+maxi represents the maximum value in the data;
+bin represents the number of different groups of data;
+a is the number of all the data.
+
+\section{Find the maximum value}
+\begin{equation}
+$$\begin{verbatim}
+def maximum(a):
+    m=0
+    for i in range(len(a)):
+        if a[i]>m:
+            m=a[i]
+    return m
+\end{verbatim}
+$$\end{equation}
+This funciton can help us to identify the maximum value in the data.
+
+\section{Drawing a histogram} \textit{Library "graphics" is needed}\\
+\noindent To draw a histogram, we first need to define a function that can draw a bargragh:
+\begin{equation}
+$$\begin{verbatim}
+def bar(a,win):
+    win.setCoords(-1,-1,len(a)+1,maximum(a)+1)
+    bl=[]
+    tr=[]
+    rec=[]
+    for i in range(len(a)):
+        bl=bl+[Point(i,0)]
+        tr=tr+[Point(i+a,a[i])]
+        rec=rec+[Rectangle(bl[i],tr[i])]
+        rec[i].draw(win)
+\end{verbatim}
+$$\end{equation} \\
+Then we combine the "bar" function and the "histogram" function.\\
+\noindent \textit{Here is just an example:}
+\begin{equation}
+$$\begin{verbatim}
+def main():
+    win=GraphWin()
+    a=zeros(400)
+    for i in range(len(a)):
+        a[i]=sum_array(rand_array(10,0,1))
+    histo=histogram(0.,10.,7,a)
+    bar(histo,win)
+main()
+\end{verbatim}
+$$\end{equation}

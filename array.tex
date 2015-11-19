@@ -1,0 +1,91 @@
+\chapter{Array 1-D, 2-D, 3-D}
+\section{Intro}
+	Array is like a storage, it can fill with string or integer. In 1-D, 2-D it can also represents the x-axis and y axis.
+\section{Creating arrays}
+	Arrays is created buy blanket.\\ \ \\
+\noindent Example:\\
+\begin{verbatim}
+	a=[ ]        *a is the array name that you want.
+\end{verbatim}
+The things in the [ ] and be store and when you want to access it you will need its position in the array and type like  a[0]\\ \ \\
+\noindent Example:\\
+\begin{verbatim}
+	a=["apple","orange","banana"]
+\end{verbatim}
+If you want to print banana form the array, you may want to type\\
+\begin{verbatim}
+print a[2] 
+\end{verbatim}
+\section{Filling arrays}
+	Everything can be store in the array, strings, integers, arrays. When you create an array you can fill things in it as the default  things that the array have.\\ \ \\
+\noindent Example:
+\begin{verbatim}
+    a=["Billy","Bud",90,60,50]
+    b=["Anne","Chow",90,95,100]
+    c=["Jen","Bo",60,80,90]
+\end{verbatim}
+
+If you want to add things into the array that u create already, you can use \\ \ \\
+
+\begin{verbatim}
+     array_name=array_name+[Things you want to add]
+\end{verbatim}
+
+\noindent Example:\\ \ \\
+
+\begin{verbatim}	
+    a=[apple]
+\end{verbatim}
+
+\noindent and now I want to add orange into it, so we add\\ \ \\
+
+\begin{verbatim}
+    a=a+[orange]
+\end{verbatim}	
+
+\noindent To create 2-D or more array we need to create array in the nested for-loop.\\ \ \\
+\noindent Example:
+\begin{verbatim}
+a=[]
+for i in range(N):	*N how long you want the array to be
+    b=[]    *This is a temporary array to generate every array inside the main array.
+    for j in range(N):
+        *Things you want to put in the array by b=b+[ ]
+    a=a+[b]	    *Here put the temporary array back to the main array.
+\end{verbatim}		
+
+
+\section{Traversing array}
+Traversing array is visiting each element in the array and do something. In 1-D we can do it with for loop to identify things in array.
+Example:
+
+\begin{verbatim}
+a=[1,2,3]
+for i in range(len(a))    *len(a) =  Numbers of elements in the array
+    *Things put here can edit the specific element a[i]
+\end{verbatim}
+	
+\noindent In 2-D we start using nested for-loop to identify the x-axis and y-axis. So we use nested for-loop to traversing it too.\\ \ \\
+\noindent Example:
+\begin{verbatim}
+a=[[0,1],[0,0],[0,1]]
+for i in range(len(a)):
+    for j in range(len(a)):
+        *Things put here can edit the specific element a[i][j]
+\end{verbatim}
+			
+\noindent In 3-D we use more for-loop to identify the more dimension.\\ \ \\
+\noindent Example:
+\begin{verbatim}
+a=[[[0,0],[0,0]],[[0,0],[0,0]]]
+for x in range(len(a)):
+    for y in range(len(a)):
+        for z in range(len(a)):
+            *Things put here can edit the specific element a[x][y][z]
+\end{verbatim}
+	
+	
+	
+	
+	
+	
