@@ -1,0 +1,44 @@
+%% LyX 2.1.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{babel}
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Listing}
+
+\begin{document}
+
+\paragraph{Random library (random)}
+
+The random library is a library that comes default with Python that
+allows for, as its title implies, random generation of numbers. In
+reality, however, the numbers are pseudorandom (not truly random)
+- but this is enough for most usage of random numbers.
+
+
+\subparagraph{random.uniform(minimum,maximum)}
+
+Generates a random float number between the set minimum and maximum
+values, based on a uniform distribution
+
+\begin{lstlisting}
+>>> import random 
+>>> random.uniform(0,10) 
+9.732061779717679
+\end{lstlisting}
+
+
+
+\subparagraph{random.randint(minimum,maximum)}
+
+Generates a random integer number between the set minimum and maximum
+values, based on a uniform distribution
+
+\begin{lstlisting}
+>>> import random
+>>> random.randint(0,10)
+8
+\end{lstlisting}
+
+\end{document}
