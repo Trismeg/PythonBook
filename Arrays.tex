@@ -1,0 +1,159 @@
+%% LyX 2.1.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{babel}
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Listing}
+
+\begin{document}
+
+\paragraph{Arrays}
+
+In a nutshell, arrays are lists of data. Most commonly, they are sets
+of integers, although they can also be sets of strings. There are
+many uses for an array, such as being used as a database to count
+occurrences. The simplest arrays are one-dimensional arrays, which
+look like this.
+
+\begin{lstlisting}
+[0,1,2,3,4]
+["a","b","c","d","e"]
+\end{lstlisting}
+
+
+These arrays can be described with several different characteristics.
+\begin{enumerate}
+\item They are both an array of length 5.
+\item They are both one dimensional arrays (trust me, this will make more
+sense).
+\item The first is a list of integers, and the second is a list of strings.
+\end{enumerate}
+
+\subparagraph{Array generation}
+
+Arrays are generated in a program by first creating an empty array,
+or by creating an array that is already filled with whatever you'd
+like.
+
+\begin{lstlisting}
+a = []
+savoryfillings = ["meat","cheese","potato"]
+\end{lstlisting}
+
+
+
+\subparagraph{Adding to an array}
+
+Adding to an array, also known as ``concatenation'', is also a very
+simple process, much like generating an array. A simple way to fill
+an array with, let's say, zeroes, is with a for loop.
+
+\begin{lstlisting}
+a = []
+for i in range(5):
+	a = a + [0]
+print a
+#this program will yield [0, 0, 0, 0, 0]
+\end{lstlisting}
+
+
+Note how the zero is in brackets. This will signify to the interpreter
+that this zero is intended to be a unit of the array.
+
+Strings can also be concatenated to an array of strings.
+
+\begin{lstlisting}
+>>> savoryfillings = ["meat","cheese","potato"] 
+>>> savoryfillings = savoryfillings + ["spinach"] 
+>>> print savoryfillings 
+['meat', 'cheese', 'potato', 'spinach']
+\end{lstlisting}
+
+
+
+\subparagraph{Referencing certain parts of an array}
+
+Referencing certain parts of an array is rather simple. A simple program
+that does such thing and prints the referenced points is displayed
+below. Remember that Python starts counting at 0, not 1!
+
+\begin{lstlisting}
+>>> a = [1, 2, 3, 4]
+>>> x = a[0]
+>>> y = a[1]
+>>> #referencing points of array is done by (nameofarray)[pointinarray]
+>>> print x
+>>> print y
+1
+2
+\end{lstlisting}
+
+
+
+\subparagraph{The command 'len'}
+
+The 'len' command takes the length of a given array and converts it
+into an integer. 
+
+\begin{lstlisting}
+>>> a = [1, 2, 3]
+>>> x = len(a)
+>>> print x
+3
+\end{lstlisting}
+
+
+'len' can also be used to do something to every point of an array,
+with the use of a for loop.
+
+\begin{lstlisting}
+>>> a = [0, 1, 2, 3, 4, 5]
+>>> for i in range(len(a)): 	
+	a[i] = a[i] + 1
+
+>>> print a 
+[1, 2, 3, 4, 5, 6]  
+\end{lstlisting}
+
+
+
+\subparagraph{Two-/three-dimensional arrays}
+
+Multidimensional arrays can be created through the use of nested for
+loops - for example, the program below generates a 5x5 array of zeroes.
+
+\begin{lstlisting}
+>>> a = [] 
+>>> for i in range(5):     
+		b = []     
+		for j in range(5):         
+			b = b+[0]     
+		a = a+[b] 
+>>> print a
+[[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
+\end{lstlisting}
+
+
+Note how this two-dimensional array has five arrays within it, each
+with five zeroes.
+
+
+\subparagraph{Application of arrays}
+
+Arrays can be used to catalog data. This program logs 
+
+\begin{lstlisting}
+import random
+mastercount = []
+for i in range (10):
+	mastercount = mastercount + [0]
+for i in range (1000):
+	x = random.randint(0,9)
+	mastercount[x] = mastercount[x]+1
+print mastercount
+#sample yield of program - [95, 103, 96, 98, 107, 108, 101, 107, 102, 83]
+\end{lstlisting}
+
+\end{document}
