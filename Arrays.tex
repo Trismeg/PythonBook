@@ -1,20 +1,11 @@
-
-
-
-
-
 \chapter{Arrays}
 
-In a nutshell, arrays are lists of data. Most commonly, they are sets
-of integers, although they can also be sets of strings. There are
-many uses for an array, such as being used as a database to count
-occurrences. The simplest arrays are one-dimensional arrays, which
-look like this.
+In a nutshell, arrays are lists of data. Most commonly, they are sets of integers, although they can also be sets of strings. There are many uses for an array, such as being used as a database to count occurrences. The simplest arrays are one-dimensional arrays, which look like this.
 
-\begin{lstlisting}
+\begin{verbatim}
 [0,1,2,3,4]
 ["a","b","c","d","e"]
-\end{lstlisting}
+\end{verbatim}
 
 
 These arrays can be described with several different characteristics.
@@ -25,55 +16,48 @@ sense).
 \item The first is a list of integers, and the second is a list of strings.
 \end{enumerate}
 
-\subparagraph{Array generation}
+\section{Array generation}
 
-Arrays are generated in a program by first creating an empty array,
-or by creating an array that is already filled with whatever you'd
-like.
+Arrays are generated in a program by first creating an empty array, or by creating an array that is already filled with whatever you'd like.
 
-\begin{lstlisting}
+\begin{verbatim}
 a = []
 savoryfillings = ["meat","cheese","potato"]
-\end{lstlisting}
+\end{verbatim}
 
 
 
-\subparagraph{Adding to an array}
+\section{Adding to an array}
 
-Adding to an array, also known as ``concatenation'', is also a very
-simple process, much like generating an array. A simple way to fill
-an array with, let's say, zeroes, is with a for loop.
+Adding to an array, also known as ``concatenation'', is also a very simple process, much like generating an array. A simple way to fill an array with, let's say, zeroes, is with a for loop.
 
-\begin{lstlisting}
+\begin{verbatim}
 a = []
 for i in range(5):
 	a = a + [0]
 print a
 #this program will yield [0, 0, 0, 0, 0]
-\end{lstlisting}
+\end{verbatim}
 
 
-Note how the zero is in brackets. This will signify to the interpreter
-that this zero is intended to be a unit of the array.
+Note how the zero is in brackets. This will signify to the interpreter that this zero is intended to be a unit of the array.
 
 Strings can also be concatenated to an array of strings.
 
-\begin{lstlisting}
+\begin{verbatim}
 >>> savoryfillings = ["meat","cheese","potato"] 
 >>> savoryfillings = savoryfillings + ["spinach"] 
 >>> print savoryfillings 
 ['meat', 'cheese', 'potato', 'spinach']
-\end{lstlisting}
+\end{verbatim}
 
 
 
-\subparagraph{Referencing certain parts of an array}
+\section{Referencing certain parts of an array}
 
-Referencing certain parts of an array is rather simple. A simple program
-that does such thing and prints the referenced points is displayed
-below. Remember that Python starts counting at 0, not 1!
+Referencing certain parts of an array is rather simple. A simple program that does such thing and prints the referenced points is displayed below. Remember that Python starts counting at 0, not 1!
 
-\begin{lstlisting}
+\begin{verbatim}
 >>> a = [1, 2, 3, 4]
 >>> x = a[0]
 >>> y = a[1]
@@ -82,43 +66,45 @@ below. Remember that Python starts counting at 0, not 1!
 >>> print y
 1
 2
-\end{lstlisting}
+\end{verbatim}
 
 
 
-\subparagraph{The command 'len'}
+
+\section{The command 'len'}
 
 The 'len' command takes the length of a given array and converts it
 into an integer. 
 
-\begin{lstlisting}
+\begin{verbatim}
 >>> a = [1, 2, 3]
 >>> x = len(a)
 >>> print x
 3
-\end{lstlisting}
+\end{verbatim}
+
 
 
 'len' can also be used to do something to every point of an array,
 with the use of a for loop.
 
-\begin{lstlisting}
+\begin{verbatim}
 >>> a = [0, 1, 2, 3, 4, 5]
 >>> for i in range(len(a)): 	
 	a[i] = a[i] + 1
 
 >>> print a 
 [1, 2, 3, 4, 5, 6]  
-\end{lstlisting}
+\end{verbatim}
 
 
 
-\subparagraph{Two-/three-dimensional arrays}
+\section{Two-/three-dimensional arrays}
 
 Multidimensional arrays can be created through the use of nested for
 loops - for example, the program below generates a 5x5 array of zeroes.
 
-\begin{lstlisting}
+\begin{verbatim}
 >>> a = [] 
 >>> for i in range(5):     
 		b = []     
@@ -127,26 +113,24 @@ loops - for example, the program below generates a 5x5 array of zeroes.
 		a = a+[b] 
 >>> print a
 [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
-\end{lstlisting}
-
+\end{verbatim}
 
 Note how this two-dimensional array has five arrays within it, each
 with five zeroes.
 
 
-\subparagraph{Application of arrays}
+\section{Application of arrays}
 
 Arrays can be used to catalog data. This program logs 
 
-\begin{lstlisting}
+\begin{verbatim}
 import random
 mastercount = []
 for i in range (10):
-	mastercount = mastercount + [0]
+    mastercount = mastercount + [0]
 for i in range (1000):
-	x = random.randint(0,9)
-	mastercount[x] = mastercount[x]+1
+    x = random.randint(0,9)
+    mastercount[x] = mastercount[x]+1
 print mastercount
 #sample yield of program - [95, 103, 96, 98, 107, 108, 101, 107, 102, 83]
-\end{lstlisting}
-
+\end{verbatim}
