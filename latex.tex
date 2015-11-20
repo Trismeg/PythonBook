@@ -1,0 +1,77 @@
+	\begin{marginfigure}%
+		\includegraphics[width=\linewidth]{lat.png}
+		\caption{This is the logo of latex.}
+		\label{fig:marginfig}
+	\end{marginfigure}
+	
+	
+	\normalsize
+	
+	%this generates 1cm of vertical space
+	\vspace{1cm}
+	\section{what is latex}
+	
+	LaTeX is a document preparation system for high-quality typesetting. It is most often used for medium-to-large technical or scientific documents but it can be used for almost any form of publishing.(Basically its a high-tech version of a pdf document maker that can do much more stuff than normal word documents.)
+
+	
+
+	
+	\vspace{1cm}
+	
+	\section{this is how you start a latex file.}
+	
+	\marginnote[40pt]{Here you start you file by telling what kind of file you are making and the title and author of it. And begin the document.}
+	\marginnote[40pt]{ And begin the document. remenber to have enddocument at the end of the paper.}
+
+	\begin{framed}
+		\begin{verbatim}
+		\documentclass{tufte-handout}
+		
+		\title{Latex}
+		
+		\author[The Academy]{Tony/Zekang Lin}
+		
+		\begin{document}
+		\end{verbatim}
+	\end{framed}
+		\section{this is some useful things you can do in latex file.}
+		
+		\marginnote[40pt]{you can use margin figure or figure to include pictures as a note or just something that you want to show.it will auto matically lable the picture as figure + the number of the image.}
+		\marginnote[40pt]{use marginnote to add notes.}
+		\marginnote[40pt]{shaded can help you shade what you are going to write and verbatim will allow you to write your codes in latex.}
+		
+		\begin{framed}
+			\begin{verbatim}
+\begin{marginfigure}%
+\includegraphics[width=\linewidth]{XXXXX.png}
+\caption{This is the logo of latex.}
+\label{fig:marginfig}
+\end{marginfigure}
+
+
+\marginnote[30pt]{DXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}
+
+
+\begin{shaded}
+\begin{verbatim}
+			\end{verbatim}
+		\end{framed}
+		
+\vspace{1cm}
+\section{why do we use latex.}
+	\begin{verbatim}
+Latex is easy to use and there are many stuff that latex will 
+automaticallydo for you, such as it will automatically write 
+the date that you last edited and autometically lable the number 
+of images you added to the paper.
+	\end{verbatim}
+	
+	\vspace{1cm}
+	\section{this is what a Latex paper can look like:}
+	\marginnote[40pt]{}
+		\begin{figure}
+			\includegraphics[width=\linewidth]{latresult.png}
+			\caption{this is what latex paper can look like.}
+			\label{fig:marginfig}
+		\end{figure}
+	
