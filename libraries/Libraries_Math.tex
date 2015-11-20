@@ -1,0 +1,49 @@
+%% LyX 2.1.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{babel}
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Listing}
+
+\begin{document}
+
+\paragraph{Math library (math)}
+
+Math is a library that comes standard with Python. Math allows for
+more complex mathematical functions to be run, that aren't sorted
+out by plain integer arithmetic.
+
+Note the value $\mathit{e}\approx2.71828$
+
+
+\subparagraph{math.sqrt(x)}
+
+Obtains the square root of x.
+
+\begin{lstlisting}
+>>> import math 
+>>> math.sqrt(9) 
+3.0
+\end{lstlisting}
+
+
+
+\subparagraph{math.log(x{[},base{]})}
+
+With only x, returns logarithm of x to base $\mathit{e}$.
+
+With x and base, returns logarithm of x to the base specified.
+
+\begin{lstlisting}
+>>> import math 
+>>> math.log(27) 
+3.295836866004329 
+>>> math.log(1000,10) 
+2.9999999999999996
+\end{lstlisting}
+
+
+
+\end{document}

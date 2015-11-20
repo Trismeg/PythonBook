@@ -4,9 +4,9 @@
 
 %%
 % Book metadata
-\title{Introduction \\to Mechanics \thanks{Thanks to Edward R.~Tufte for his inspiration.}}
-\author[The Tufte-LaTeX Developers]{Dr. Doeg}
-\publisher{The Invisible College}
+\title{Introduction \\to Python \thanks{Thanks to Edward R.~Tufte for his inspiration.}}
+\author[The Tufte-LaTeX Developers]{CSEF}
+\publisher{The Student Academy}
 
 %%
 % If they're installed, use Bergamo and Chantilly from www.fontsite.com.
@@ -49,12 +49,66 @@
  \usepackage{setspace}
 % \usepackage{3dplot}
  \usepackage{cancel}
-\usepackage{physymb}
+%\usepackage{physymb}
 \usepackage{braket}
 \usepackage{verbatim}
+\usepackage{fancyvrb} % extended verbatim environments
+\usepackage{framed}%To get shade behind text
+\usepackage{pgfplots}
+\usepackage{setspace}
+\definecolor{shadecolor}{gray}{0.9}
 %\usepackage[x11names]{xcolor}                     %Additional colors
 %\usepackage{euler}  
+\usepackage{framed}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+% Custom colors
+\usepackage{color}
+\definecolor{normal}{rgb}{0,0.2,1}
+\definecolor{lib}{rgb}{0.9,0.5,0}
+\definecolor{str}{rgb}{0,0.7,0}
+\definecolor{back}{rgb}{0.8,0.8,0.8}
+
+\usepackage{listings}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+backgroundcolor=\color{back},
+basicstyle=\ttm,
+otherkeywords={*},             % Add keywords here
+keywordstyle=\ttb\color{normal},
+emph={__init__, in,from, import, and,not,or,as },          % Custom highlighting
+emphstyle=\ttb\color{lib},    % Custom highlighting style
+stringstyle=\color{str},
+frame=single,
+numbers=left,                         % Any extra options here
+showstringspaces=false,
+stepnumber=1,
+commentstyle=\color{red}            % 
+}}
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+\pythonstyle
+\lstinputlisting[#1]{#2}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 % The fancyvrb package lets us customize the formatting of verbatim
@@ -76,20 +130,8 @@
 % Prints a trailing space in a smart way.
 \usepackage{xspace}
 
-%%
-% Some shortcuts for Tufte's book titles.  The lowercase commands will
-% produce the initials of the book title in italics.  The all-caps commands
-% will print out the full title of the book in italics.
-\newcommand{\vdqi}{\textit{VDQI}\xspace}
-\newcommand{\ei}{\textit{EI}\xspace}
-\newcommand{\ve}{\textit{VE}\xspace}
-\newcommand{\be}{\textit{BE}\xspace}
-\newcommand{\VDQI}{\textit{The Visual Display of Quantitative Information}\xspace}
-\newcommand{\EI}{\textit{Envisioning Information}\xspace}
-\newcommand{\VE}{\textit{Visual Explanations}\xspace}
-\newcommand{\BE}{\textit{Beautiful Evidence}\xspace}
 
-\newcommand{\TL}{Tufte-\LaTeX\xspace}
+
 
 % Prints the month name (e.g., January) and the year (e.g., 2008)
 \newcommand{\monthyear}{%
@@ -182,13 +224,9 @@
 
 % v.2 epigraphs
 \newpage\thispagestyle{empty}
+
 \openepigraph{%
-I think that modern physics has definitely decided in favor of Plato. In fact the smallest units of matter are not physical objects in the ordinary sense; they are forms, ideas which can be expressed unambiguously only in mathematical language.
-}{Werner Heisenberg%, {\itshape Design, Form, and Chaos}
-}
-\vfill
-\openepigraph{%
-The only shibboleth the West has is science. It is the premise of modernity and it defines itself as a rationality capable of, indeed requiring separation from politics, religion and really, society. Modernisation is to work towards this\ldots If one looks at the works of Newton to Einstein, they were never scientists in the way modernity understands the term. 
+The only shibboleth the West has is science. It is the premise of modernity and it defines itself as a rationality capable of, indeed requiring separation from politics, religion and really, society. Modernisation is to work towards this.
 }{Bruno Latour}
 \vfill
 \openepigraph{%
@@ -200,30 +238,7 @@ The boundary between science fiction and social reality is an optical illusion.
 \maketitle
 
 
-% v.4 copyright page
-\newpage
-\begin{fullwidth}
-~\vfill
-\thispagestyle{empty}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{\baselineskip}
-Copyright \copyright\ \the\year\ \thanklessauthor
 
-\par\smallcaps{Published by \thanklesspublisher}
-
-\par\smallcaps{https://github.com/Trismeg/PhysicsBook}
-
-\par Licensed under the Apache License, Version 2.0 (the ``License''); you may not
-use this file except in compliance with the License. You may obtain a copy
-of the License at \url{http://www.apache.org/licenses/LICENSE-2.0}. Unless
-required by applicable law or agreed to in writing, software distributed
-under the License is distributed on an \smallcaps{``AS IS'' BASIS, WITHOUT
-WARRANTIES OR CONDITIONS OF ANY KIND}, either express or implied. See the
-License for the specific language governing permissions and limitations
-under the License.\index{license}
-
-\par\textit{First printing, \monthyear}
-\end{fullwidth}
 
 % r.5 contents
 \tableofcontents
@@ -238,8 +253,7 @@ under the License.\index{license}
 \begin{doublespace}
 \noindent\fontsize{18}{22}\selectfont\itshape
 \nohyphenation
-Dedicated to the ghosts of the college and the spectral bodies of physics. 
-% \mbox{Edward R.~Tufte} 
+The longest snake ever held captive is Medusa, a reticulated python (python reticulatus). On 12 October 2011, she was measured at 7.67 m long.% \mbox{Edward R.~Tufte} 
 %and \mbox{Donald E.~Knuth}.
 \end{doublespace}
 \vfill
@@ -250,7 +264,7 @@ Dedicated to the ghosts of the college and the spectral bodies of physics.
 %\cleardoublepage
 \chapter*{Note}
 
-This physics text is an OpenSource academic project developed in abstraction by the Invisible College.  The manuscript is written in \LaTeX \ and makes use of the \doccls{tufte-book} and \doccls{tufte-handout} document classes.  
+This physics text is an OpenSource academic project developed in abstraction at The Academy.  The manuscript is written in \LaTeX \ and makes use of the \doccls{tufte-book} and \doccls{tufte-handout} document classes.  
 
 \vspace{2cm}
 
@@ -262,23 +276,35 @@ https://git-scm.com/downloads
 % Start the main matter (normal chapters)
 \mainmatter
 
-%\include{introduction}
-%\include{translational_kinematics}
+\include{int_and_floatz}
+\include{booleans_michael}
+\include{while_loops}
+\include{while}
+\include{array}
+\include{for_loop}
+\include{libraries_intro}
+\include{Statistics}
+\include{Libraries_Graphics}
+\include{Monte_Carlo}
+\include{Game_of_Life}
+
 %\include{rotational_kinematics}
 %\include{forces}
 %\include{work} 
 %\include{momentum} 
 %\include{angular_momentum} 
- 
+
 
 
 
 
 %\bibliography{sample-handout}
-%\bibliographystyle{plainnat}
+\bibliographystyle{plainnat}
+
 
 
 \printindex
 
 \end{document}
+
 

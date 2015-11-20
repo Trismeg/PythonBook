@@ -1,0 +1,39 @@
+\chapter{Monte Carlo}
+Monte Carlo simulations are a broad class of computational algorithms that rely on repeated random sampling to obtain numerical results. They are often used in physical and mathematical problems and are most useful when it is difficult or impossible to use other mathematical methods. Monte Carlo methods are mainly used in three distinct problem classes:[1] optimization, numerical integration, and generating draws from a probability distribution. In Class we have used the Monte Carlo simulation for the probability function.
+
+We have estimated the value of pi 
+
+    We start the familiar example of finding the area of a circle.  Figure 1 below shows a circle with radius r=1 inscribed within a square. The area of the circle is $Pi*r^2=Pi*1=Pi$ and the area of the square is 4 The ratio of the area of the circle to the area of the square is
+    $[Graphics:Images/MonteCarloPiMod_gr_4.gif] $
+    
+        $[Graphics:Images/MonteCarloPiMod_gr_5.gif] $
+        $[Graphics:Images/MonteCarloPiMod_gr_11.gif] $
+\begin{verbatim} 
+import random 
+x=random.uniform(-1,1)
+y=random.uniform(-1,1)
+n=0.
+#n is the number of random points in the circle
+p=999999
+#p is the number of random prints
+for i in range(p):
+    x=random.uniform(-1,1)
+    y=random.uniform(-1,1)
+    if (x*x+y*y)<1:
+     n=n+1
+pi=4*(n/p)
+print pi
+\end{verbatim}
+
+As you increase P the estimation will be more accurate. for p=999999
+\begin{verbatim}
+>>> 
+3.14152314152
+>>> 
+\end{verbatim}
+Whereas for p=100
+\begin{verbatim}
+>>> 
+3.24
+>>> 
+\end{verbatim}
