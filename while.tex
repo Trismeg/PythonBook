@@ -1,0 +1,74 @@
+\chapter{While Loops}
+A while loop is a function, which needs a boolean statement to run, in order to prit out a list of results. The while loop will print out as many resultts as possible, until the boolean statement stops being true. For example:
+
+\begin{verbatim}
+i=0
+while (i<5):
+    print i
+    i=i+1
+    
+\end{verbatim}
+
+Now, the boolean statement inserted here is "i<5", meaning that "i" must be less than 5. The next function now commands the system to print "i". The result would be:
+\begin{verbatim}
+0
+1
+2
+3
+4
+\end{verbatim}
+
+This is because after the computer was demanded to print out "i", the function "i==i+1", was entered, meaning that it should print out all the numbers that make the bolean statement rue, until the number is five, making it false.
+
+There are also many ways you could manipulate this code. A break may be inserted as follows: 
+\begin{verbatim}
+i=0
+while (i<5):
+    print i
+    i=i+
+    if i==4:
+        break
+    
+\end{verbatim}
+
+The result would be:
+\begin{verbatim}
+0
+1
+2
+3
+\end{verbatim}
+
+Excluding "4", because as a result of the break, the computer is now told not to print anything from the number 4.
+
+However, if the break came before "i=i+1" like:
+\begin{verbatim}
+i=0
+while (i<5):
+    print i
+    if i==4:
+        break
+    i=i+1
+    
+\end{verbatim}
+
+The result would be:
+\begin{verbatim}
+0
+1
+2
+3
+4
+\end{verbatim}
+
+
+
+
+
+
+
+
+
+
+
+

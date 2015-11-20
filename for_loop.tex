@@ -1,0 +1,140 @@
+\chapter{For Loops, Nested For Loops}
+For in loop has the ability to iterate over the items of any sequence, such as a list or a string.
+
+If a sequence contains an expression list, it is evaluated first. Then, the first item in the sequence is assigned to the iterating variable iterating var. Next, the statements block is executed. Each item in the list is assigned to iterating var, and the statement(s) block is executed until the entire sequence is exhausted.
+
+
+\normalsize
+
+\section{\textbf{PYTHON CODE}}
+
+\section{\textbf{Syntax:}}
+\begin{verbatim}
+for var in sequence:
+   statements
+\end{verbatim}
+   
+\section{Example 1}   
+\marginnote[40pt]{The goal is to print all the elements in the array}
+\begin{shaded}
+\begin{verbatim}
+for i in ["hello", "hey", "yo"]:
+    print i
+\end{verbatim}
+\end{shaded}
+
+\section{Output 1}
+\begin{shaded}
+\begin{verbatim}
+>>> Hello
+    hey
+    yo
+\end{verbatim}
+\end{shaded}
+
+\section{Example 2}   
+\marginnote[40pt]{The goal is to print all the number in range 5. Note, that Python starts counting from 0}
+\begin{shaded}
+\begin{verbatim}
+for i in range(5):
+    print i
+\end{verbatim}
+\end{shaded}
+    
+\section{Output 2}
+\begin{shaded}
+\begin{verbatim}
+>>> 1
+    2
+    3
+    4
+    5
+\end{verbatim}
+\end{shaded}
+
+\vspace{2cm}
+
+\section{Nested for loops}
+\begin{verbatim}
+Python programming language allows to use one loop inside 
+another loop. Following section shows few examples to illustrate
+the concept.
+\end{verbatim}
+
+
+\section{Syntax}
+\begin{verbatim}
+for iterating_var in sequence:
+   for iterating_var in sequence:
+      statements(s)
+   statements(s)
+\end{verbatim}
+
+\section{Example 1}   
+\marginnote[40pt]{The goal is to print every number from 0 to 5 three times in a row.}
+\begin{shaded}
+\begin{verbatim}
+for i in range(5): #loop everything indented 5 times
+    for j in range(3): #loop everything indented 3 times
+        print i #print output of i
+
+\end{verbatim}
+\end{shaded}
+
+\vspace{3cm}
+\section{Output 1}
+\begin{shaded}
+\begin{verbatim}
+>>> 0
+    0
+    0
+    1
+    1
+    1
+    2
+    2
+    2
+    3
+    3
+    3
+    4
+    4
+    4
+\end{verbatim}
+\end{shaded}
+
+\vspace{1cm}
+
+\section{Example 2}   
+\marginnote[40pt]{The goal is to create a 2D arrays that would be fulfilled with values of "1" or "0" depending on which number was randomly chosen by the computer}
+
+\scriptsize
+\begin{shaded}
+\begin{verbatim}
+
+import random #importing "random" library that will take random numbers for our program
+x = [] #creating initial, empty array that will be fulfilled with other arrays later
+for i in range(5): #loop everything indented 5 times
+    r=[] #creates 5 more arrays
+    for j in range(5): #loop everything indented 5 times
+        if random.uniform(0,10)<3: #compare if randomly chosen number is smaller than 3
+            r=r+[1] #if it is, add value of "1" inside the secondary array - r
+        else: #or
+            r=r+[0] #if it is bigger, add value of "0" inside the secondary array - r
+    x.append(r) #add all of these secondary arrays to our main - x array. 
+    #Basically we create 2D array.
+print x #print our 2D array to see the output.
+
+\end{verbatim}
+\end{shaded}
+
+\normalsize
+\section{Output 2}
+\marginnote[40pt]{However, the numbers that you see here isn't the only output you can get. We used random uniforms and each time it will give different values.}
+\begin{shaded}
+\begin{verbatim}
+>>> [[0, 0, 0, 1, 1], [1, 0, 0, 0, 0], [0, 0, 0, 0, 0],
+    [0, 1, 0, 0, 0], [0, 0, 0, 0, 0]]
+\end{verbatim}
+\end{shaded}
+   

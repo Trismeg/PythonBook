@@ -1,0 +1,46 @@
+\chapter{Libraries}
+\section{Introduction}
+Libraries in Python are extensions to the basic Pyhton coding. Python comes with some libraries of its own. But it is also possible to write your own libraries. But before you can use libraries you have to import the libraries that you want to use in your script. There are several ways how you can import libraries. Libraries are always imported at the beginning of a scrip.
+
+\subsection{Importing Python Libraries}
+The easiest way to import libraries is to use the import function. For these examples we will use the random library.
+\marginnote{With this you have to put the libraries name in front of the function of the library}
+\begin{python}
+import random
+print random.uniform(1,10)
+\end{python}
+
+If you want to rename a library before you are using it you can do the following
+\begin{python}
+import random as rndm
+print rndm.uniform(1,10)
+\end{python}
+
+If you dont want to have to write a library name in front of it at all you can do
+\begin{python}
+from random import *
+print uniform(1,10)
+\end{python}
+
+There is one other option how you can import libraries. If you use all of what we learned before we can use the following.
+\marginnote{With this you can import a single function of a libary and you name the function.}
+\begin{python}
+from random import uniform as makeRandom
+print makeRandom(1,10)
+\end{python}
+
+\subsection{Importing custom libraries}
+If you want to use libraries you or someone else has written in python you can do that also. First you have to make sure that the script you want to import is in the same folder as the scripit you want to import it into. Lets asume we have to following script we want to use as a libary.
+\begin{python}
+def Bla():
+    print "Bla"
+
+def MyFunction(A)
+    print A+A
+\end{python}
+Lets assume the scripts name is lib. Now if we want to use this in our main script we can do eaither of our ways. Use the file name as the libraries name.
+\begin{python}
+import lib
+import lib as mylib
+from lib import Bla as Tell
+\end{python}
