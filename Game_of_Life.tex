@@ -1,0 +1,105 @@
+
+\chapter {Game of Life}
+
+The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970.
+The "game" is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves.
+\subsection{ Game of Life Rules}
+The universe of the Game of Life is an infinite two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, alive or dead. Every cell interacts with its eight neighbours, which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur:
+\begin{description}
+  \item[First] \hfill \\
+  Any live cell with fewer than two live neighbours dies, as if caused by under-population.
+  \item[Second] \hfill \\
+  Any live cell with two or three live neighbours lives on to the next generation.
+  \item[Third] \hfill \\
+  Any live cell with more than three live neighbours dies, as if by over-population.
+  \item[Fourth] \hfill \\
+  Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+  
+\end{description}
+ Here is the code we wrote in class: \hfill
+\begin{verbatim}[frame=single]
+
+import random
+from graphics import *
+
+#this function creates an NxN array filled with zeros
+def empty(N):
+    a=[]
+    for i in range(N):
+        b=[]
+        for j in range(N):
+            b=b+[0]
+        a=a+[b]
+    return a
+
+#this function fills the array a with a portion p of live cells
+def fill(a,p):
+    N=len(a)
+    for i in range(N):
+        for j in range(N):
+            if random.uniform(0,1)<p:
+                a[i][j]=1
+
+def update(A,B):
+    N=len(A)
+    for i in range(N):
+        for j in range(N):
+            neigh=A[(i-1)%N][(j-1)%N]+A[(i-1)%N][j]+A[(i-1)%N][(j+1)%N]+A[i][(j-1)%N]+A[i][(j+1)%N]+
+            A[(i+1)%N][(j-1)%N]+A[(i+1)%N][j]+A[(i+1)%N][(j+1)%N]
+            if A[i][j]==0:
+                if neigh==3:
+                    B[i][j]=1
+                else:
+                    B[i][j]=0
+            else:
+                if neigh==2 or neigh==3:
+                    B[i][j]=1
+                else:
+                    B[i][j]=0
+
+
+def gen2Dgraphic(N):
+    a=[]
+    for i in range(N):
+        b=[]
+        for j in range(N):
+            b=b+[Circle(Point(i,j),.49)]
+        a=a+[b]
+    return a
+
+def push(B,A):
+    N=len(A)
+    for i in range(N):
+        for j in range(N):
+            A[i][j]=B[i][j]
+            
+def drawArray(A,a,window):
+#A is the array of 0,1 values representing the state of the game
+#a is an array of Circle objects
+#window is the GraphWin in which we will draw the circles
+    N=len(A)
+    for i in range(N):
+        for j in range(N):
+            if A[i][j]==1:
+                a[i][j].undraw()
+                a[i][j].draw(window)
+            if A[i][j]==0:
+                a[i][j].undraw()
+
+N=10            #N is the number of live cells you start with
+win = GraphWin("title",400,400)
+win.setCoords(-1,-1,N+1,N+1)
+grid=empty(N)
+grid2=empty(N)
+circles=gen2Dgraphic(N)
+fill(grid,0.3)
+
+while True:
+    drawArray(grid,circles,win)
+    update(grid,grid2)
+    push(grid2,grid)
+\end{verbatim}
+
+
+
+

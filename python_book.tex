@@ -26,6 +26,9 @@
 % Just some sample text
 \usepackage{lipsum}
 
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Listing}
+
 %%
 % For nicely typeset tabular material
 \usepackage{booktabs}
@@ -67,7 +70,54 @@
 %\usepackage{euler}  
 \usepackage{framed}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+% Custom colors
+\usepackage{color}
+\definecolor{normal}{rgb}{0,0.2,1}
+\definecolor{lib}{rgb}{0.9,0.5,0}
+\definecolor{str}{rgb}{0,0.7,0}
+\definecolor{back}{rgb}{0.8,0.8,0.8}
 
+\usepackage{listings}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+backgroundcolor=\color{back},
+basicstyle=\ttm,
+otherkeywords={*},             % Add keywords here
+keywordstyle=\ttb\color{normal},
+emph={__init__, in,from, import, and,not,or,as },          % Custom highlighting
+emphstyle=\ttb\color{lib},    % Custom highlighting style
+stringstyle=\color{str},
+frame=single,
+numbers=left,                         % Any extra options here
+showstringspaces=false,
+stepnumber=1,
+commentstyle=\color{red}            % 
+}}
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+\pythonstyle
+\lstinputlisting[#1]{#2}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 % The fancyvrb package lets us customize the formatting of verbatim
@@ -235,6 +285,7 @@ https://git-scm.com/downloads
 % Start the main matter (normal chapters)
 \mainmatter
 
+<<<<<<< HEAD
 
 \include{Terminal}
 %\include{translational_kinematics}
@@ -250,19 +301,39 @@ https://git-scm.com/downloads
 %\include{boolean}
 
 \include{array}
+=======
+\include{int_and_floatz}
+
+\include{booleans_michael}
+\include{while_loops}
+\include{while}
+\include{Bases}
+\include{array}
+\include{Arrays}
+\include{for_loop}
+\include{libraries_intro}
+\include{random}
+\include{Statistics}
+\include{stats17}
+\include{Libraries_Graphics}
+\include{Monte_Carlo}
+\include{Game_of_Life}
+\include{git}
+
+>>>>>>> upstream/master
 %\include{rotational_kinematics}
 %\include{forces}
 %\include{work} 
 %\include{momentum} 
 %\include{angular_momentum} 
-\include{while_loops}
+
 
 
 
 
 %\bibliography{sample-handout}
 \bibliographystyle{plainnat}
-http://www.tutorialspoint.com/python/python_nested_loops.htm
+
 
 
 \printindex
