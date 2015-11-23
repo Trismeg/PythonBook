@@ -1,9 +1,115 @@
-\chapter{Boolean}
+\chapter{The Boolean}
 
-\section{Intro}
+\section{Introduction}
 
-boolean boolean
+ Boolean is a data type used in computer, there having two value and usually is "True" and "False".
+ And Intended to represent the truth values of logic and Boolean algebra.\\ \ \\ \ \\
 
-\section{Boolean Operators}
+\section{The Boolean Operators}
+
+Boolean Operators are some words like (AND, OR, NOT) used as
+connection to combine or remove words in a research , resulting in more focused and
+productive results. This should save time and effort by eliminating inappropriate hits that
+must be scanned before discarding, i thing these operators can greatly 
+reduce or expand the amount of records returned.\\ \ \\
+
+\noindent Using these operators can reduce or expand the amount of records returned.
+Boolean operators are useful in saving time by focusing searches for more 'on-target'
+And now i would like to introduce the operators one by one with some examples.\\ \ \\ \ \\
+
+AND -- requires both terms to be in each item returned. If one term is contained in the
+document and the other is not, the item is not included in the resulting list. (Simpifly the
+search)\\ \ \\
+
+\noindent Example:
+\begin{verbatim}
+True AND True = True
+True AND False = False
+False AND True = False
+False AND False = False
+\end{verbatim}\\ \ \\
+\ \\ \ \\
+
+OR -- either term (or both) will be in the returned document. (Broadens the search)\\ \ \\
+
+\noindent Example:
+\begin{verbatim}
+True OR True = True
+True OR False = True
+False OR True = True
+False OR False = False
+\end{verbatim}\\ \ \\
+
+NOT -- first term is searched, then any records containing the term after the operators are subtracted from the results.The result need to be the opposite.\\ \ \\
+
+\noindent Example:
+\begin{verbatim}
+NOT(True) = False
+NOT(False) = True
+\end{verbatim}\\ \ \\
+\ \\ \ \\ 
 
 \section{Boolean Arithmetic}
+
+We can get booleans by making some statements like calculation symbols, and now we have " != "," == ", " > ", " < ", " <= ", " >= ".\
+
+\begin{framed}
+\begin{verbatim}
+" != " symbol is means not EQUAL.
+" == " symbol is what we call equal.
+" > " symbol means greater than.
+" < " symbol means less than.
+" >= " symbol means greater and equal to.
+" <= " symbol means less and equal to.
+\end{verbatim}\\ \ \\
+\end{framed}
+
+\noindent For example:
+\begin{verbatim}
+" == "
+9==8 will get False.   
+9==9 will get True.                
+NOT(9==8) will get True.      
+NOT(9==9) will get False.     
+
+" > "
+9>8 will get True.
+8>9 will get False.
+NOT(9>8) will get False.
+NOT(8>9) will get True.
+
+" <= "
+9<=8 will get False.
+8<=9 will get True.
+8<=8 will get True.
+NOT(9<=8) will get True.
+NOT(8<=9) will get False.
+NOT(8<=8) will get False.
+\end{verbatim}
+
+Now we have some example for combination with symbols.And .Lets try it together.\ \\ \
+
+\begin{verbatim}
+
+EXAMPLES:
+
+NOT(9<7) AND (6>=7 OR 8==8)
+
+
+(9*3>=35) OR NOT((77/11)==7) AND (6>=6 OR 54>4) AND (8<5 OR 33+3==10*4-4)
+
+
+(9+2-4*2<=36/6) AND (8!=9 OR NOT(5*5-65/5==5)
+
+
+NOT(6+4==7+3-5+4-1+24/8) OR ((6<3*3)!=(4+4+5-3)
+
+
+\end{verbatim}\\ \ \\
+
+
+
+
+
+
+
