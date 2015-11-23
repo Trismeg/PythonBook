@@ -1,0 +1,76 @@
+\chapter{Conditional Statements}
+
+
+
+\section{Introduction}
+I am going to talk about if and else.
+The if statement is used for conditional execution.
+It selects exactly one of the suites by evaluating the 
+expressions one by one until one is found to be true.
+if all of the expressions are false, it will choose else.
+And the elif statement. It stands for "else if," which means 
+that if the original if statement is false and the elif 
+statement is true.An else statement can be combined with an 
+if statement. An else statement contains the block of code 
+that executes if the conditional expression in the if 
+statement resolves to 0 or a false value. 
+\begin{verbatim}
+a=15
+b=10
+if a>b:
+    print "a>b"
+else: print "a<=b"
+\end{verbatim}
+And the output:
+\begin{verbatim}
+a>b
+\end{verbatim}
+if "a" greater than "b",print "a>b".For example,"a' is 15,
+"b" is 10,15 is greater than 10,so print"a>b". if "a" is not 
+greater than "b",then,choice else,print "a<=b"
+
+\begin{verbatim}
+a = 0
+
+while a < 10:
+    a = a + 1
+    if a > 5:
+        print (a,">",5)
+    elif a <= 7:
+        print (a,"<=",7)
+    else:
+        print ("Neither test was true")
+\end{verbatim}
+And the output:
+\begin{verbatim}
+1 <= 7
+2 <= 7
+3 <= 7
+4 <= 7
+5 <= 7
+6 > 5
+7 > 5
+8 > 5
+9 > 5
+10 > 5 
+\end{verbatim}
+first,because of a<10.a=1+1 the result should greater than 5
+so "a" will from 0 to 9 until a cannot change any more,
+so, a=6,7,8,9,10.if not, like a<7 or a=7, print a<=7.so 
+1,2,3,4,5 is the answer.
+ 
+  
+  
+In the Game of Life we updated the grid depending on the number of neighbors of a cell.
+\begin{verbatim}
+if A[i][j]==0:
+    if neigh==3:
+        B[i][j]=1
+    else:
+        B[i][j]=0
+else:
+    if neigh==2 or neigh==3:
+        B[i][j]=1
+    else:
+        B[i][j]=0
+\end{verbatim}
