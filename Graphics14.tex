@@ -1,0 +1,147 @@
+\chapter{Graphics}
+\begin{marginfigure}%
+  \includegraphics[scale=0.1]{Project.jpg}
+  \caption{This is an example of python graphics.}
+  \label{fig:marginfig}
+\end{marginfigure}
+\newthought{Graphics in python is an amazing to for creating a document. For instance, when people want to show a comparison between some specific statuses, they might want to create a line diagram or a pie diagram. In this case, they might use python graphics to graph the diagrams. Furthermore, people can also use graphics to create animation. For instance, in class, the teacher taught us how to create a Conway Game of Life and the exact way to do it is to using circles and some other codes to compile the animation. In some other circumstances, people also use graphics to create games and other things. The most famous example is the PAC man, which has basic elements as circles and squares. As the result, graphics is essential for computer science and it is extremely useful as well.}
+
+
+\vspace{0.5 cm}
+\section{-Example of Graphics}
+    Here come some basic codes of compiling some shapes. For instance, people can compile a triangle, a square, a circle, a series of circle. Consequently, I am going to show some of the codes for compiling Squares, Circles, Windows, Lines, and texts. 
+\vspace{0.4cm}
+
+\begin{verbatim}
+(1)Bar graphics
+\end{verbatim}
+
+\marginnote[-150pt]{First, open a new file and import the library called graphics. Second, import random number because we want random height of squares. After that, we set the length of array 10 and the max value of number to be 10 as well because we don't want the graph to be over flow. Third, we create and array in order to create random numbers. Forth, we create a window and find the bottom left points and top right points of the squares. Consequently, we can graph the squares. At the very end we are compiling the squares to the window that we created. Rule of creating a square, square=[Point(bottom left, top right]}
+
+\begin{marginfigure}%
+  \includegraphics[scale=0.1]{Squares.jpg}
+  \caption{This is an example of python graphics, Squares.}
+  \label{fig:marginfig}
+\end{marginfigure}
+
+\begin{shaded}
+\begin{verbatim}
+from graphics import*
+import random
+#length of the array
+L=10
+#Max value of number
+M=10
+a=[]
+for i in range(10):
+    a=a+[random.uniform(0,M)]
+
+win=GraphWin()
+win.setCoords(-0.2,0,L,M+0.2)
+
+#array of bottom left points
+bl=[]
+for i in range(L):
+    bl=bl+[Point(i,0)]
+
+#array of top right points
+tr=[]
+for i in range(L):
+    tr=tr+[Point(i+1,a[i])]
+
+#array of rectangels
+rec=[]
+for i in range(L):
+    rec=rec+[Rectangle(bl[i],tr[i])]
+
+for i in range(L):
+    rec[i].draw(win)
+
+\end{verbatim}
+\end{shaded}
+
+
+\begin{verbatim}
+(2)10 Circles
+\end{verbatim}
+
+\marginnote{Same as creating squares, import the library and create a new window. After that, we need to create an array for finding the center point of the 10 circles. Following, we follow the rules if creating circles which is Circle(center point, radius). At the end, we compile the circles to the window.}
+
+\begin{marginfigure}%
+  \includegraphics[scale=0.1]{10circles.jpg}
+  \caption{This is an example of python graphics,10 circles.}
+  \label{fig:marginfig}
+\end{marginfigure}
+
+\begin{shaded}
+\begin{verbatim}
+from graphics import *
+
+wind=GraphWin()
+wind.setCoords(0,0,10,12)
+
+centers=[]
+for i in range(10):
+    centers=centers+[Point(5,1+i)]
+
+circles=[]
+for i in range(10):
+    circles=circles+[Circle(centers[i],1)]
+
+for i in range(10):
+    circles[i].draw(wind)
+
+\end{verbatim}
+\end{shaded}
+
+
+\begin{verbatim}
+(3)Window
+\end{verbatim}
+\marginnote{In order to create a window, we also need to import graphics library. After that, we need to follow the rule of creating a window which is set the name of the window(in this case is wind). Following, we set the coordinate of the window which is wind.setCoords(0,0,10,10). This process creates a window for us to put other graphics in. }
+\begin{shaded}
+\begin{verbatim}
+from graphics import *
+
+wind=GraphWin()
+wind.setCoords(0,0,10,10)
+\end{verbatim}
+\end{shaded}
+
+
+\begin{verbatim}
+(4)Lines
+\end{verbatim}
+\marginnote{Same thing as other graphics, we import the library and create a window. After, we follow the rule of creating the line which is finding its starting point and the ending point. For instance, Line[Point(1.0,3.0),Point(1.0,4.0)]. At the end, we draw it on the window that we just created.}
+\begin{shaded}
+\begin{verbatim}
+from graphics import *
+
+wind=GraphWin()
+wind.setCoords(0,0,10,10)
+
+Line= Line[Point(1.0,3.0),Point(1.0,4.0)]
+
+Line.draw(wind)
+\end{verbatim}
+\end{shaded}
+
+
+\begin{verbatim}
+(5)text
+\end{verbatim}
+
+\marginnote{Creating text in graphics is also a simple process. First, we import the library and create a window for it. After that, we need to follow the rule of compiling text on a window which is Text(Point(coordinate), "text")}
+
+\begin{shaded}
+\begin{verbatim}
+from graphics import *
+
+wind=GraphWin()
+wind.setCoords(0,0,10,10)
+
+text= Text(Point(0.0,5.0),"Hello")
+
+text.draw(wind)
+\end{verbatim}
+\end{shaded}
