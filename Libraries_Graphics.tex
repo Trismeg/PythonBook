@@ -19,12 +19,15 @@ Now that we know how to create a window we can start drawing on it. There are va
 Point(2,4) #Creates a point at 2,4
 \end{python}
 To actually draw in windows we have to use the draw command. 
+\begin{fullwidth}
 \begin{python}
 Window = GraphWin(WindowName, Width, Height)
 Window.setCoords(StartX,StartY,WidthPixel,HeightPixel)
 Obj = OurObject
 Obj.draw(Window)
 \end{python}
+\end{fullwidth}
+
 In this example we are drawing Obj to our window.
 
 \subsection{Rectangles}
