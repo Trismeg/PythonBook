@@ -1,0 +1,161 @@
+\begin{marginfigure}%
+	\includegraphics[width=\linewidth]{QQ图片20151113134117.png}
+	\caption{This is a type of game of life.}
+	\label{fig:marginfig}
+\end{marginfigure}
+\begin{abstract}
+\noindent
+Zhaojian chen
+\end{abstract}
+
+\normalsize
+
+%this generates 1cm of vertical space
+\vspace{1cm}
+\section{simulations}
+
+The "game" is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves or, for advanced players, by creating patterns with particular properties.
+
+
+
+	
+The universe of the Game of Life is an infinite two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, alive or dead. Every cell interacts with its eight neighbours, which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur:
+
+Any live cell with fewer than two live neighbours dies, as if caused by under-population.
+Any live cell with two or three live neighbours lives on to the next generation.
+Any live cell with more than three live neighbours dies, as if by over-population.
+Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+
+The initial pattern constitutes the seed of the system. The first generation is created by applying the above rules simultaneously to every cell in the seed—births and deaths occur simultaneously, and the discrete moment at which this happens is sometimes called a tick (in other words, each generation is a pure function of the preceding one). The rules continue to be applied repeatedly to create further generations.
+
+\vspace{1cm}
+
+\section{python code}
+
+
+
+\marginnote[40pt]{Any live cell with fewer than two live neighbours dies, as if caused by under-population.
+
+
+
+Any live cell with two or three live neighbours lives on to the next generation.
+
+
+
+Any live cell with more than three live neighbours dies, as if by over-population.
+
+
+
+Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.}
+
+\begin{framed}
+\begin{verbatim}
+import random
+from graphics import *
+
+#this function creates an NxN array filled with zeros
+def empty(N):
+a=[]
+for i in range(N):
+b=[]
+for j in range(N):
+b=b+[0]
+a=a+[b]
+return a
+
+#this function fills the array a with a portion p of live cells
+def fill(a,p):
+N=len(a)
+for i in range(N):
+for j in range(N):
+if random.uniform(0,1)<p:
+a[i][j]=1
+
+def update(A,B):
+N=len(A)
+for i in range(N):
+for j in range(N):
+neigh=A[(i-1)%N][(j-1)%N]+A[(i-1)%N][j]+A[(i-1)%N][(j+1)%N]
++A[i][(j-1)%N]+A[i][(j+1)%N]+A[(i+1)%N][(j-1)%N]+A[(i+1)%N]
+[j]+A[(i+1)%N][(j+1)%N]
+if A[i][j]==0:
+if neigh==3:
+B[i][j]=1
+else:
+B[i][j]=0
+else:
+if neigh==2 or neigh==3:
+B[i][j]=1
+else:
+B[i][j]=0
+
+
+def gen2Dgraphic(N):
+a=[]
+for i in range(N):
+b=[]
+for j in range(N):
+b=b+[Circle(Point(i,j),.49)]
+a=a+[b]
+return a
+
+def push(B,A):
+N=len(A)
+for i in range(N):
+for j in range(N):
+A[i][j]=B[i][j]
+
+def drawArray(A,a,window):
+#A is the array of 0,1 values representing the state of the game
+#a is an array of Circle objects
+#window is the GraphWin in which we will draw the circles
+N=len(A)
+for i in range(N):
+for j in range(N):
+if A[i][j]==1:
+a[i][j].undraw()
+a[i][j].draw(window)
+if A[i][j]==0:
+a[i][j].undraw()
+
+N=50
+win = GraphWin("Title",600,600)
+win.setCoords(-1,-1,N+1,N+1)
+grid=empty(N)
+grid2=empty(N)
+circles=gen2Dgraphic(N)
+fill(grid,0.1)
+
+while True:
+drawArray(grid,circles,win)
+update(grid,grid2)
+push(grid2,grid)
+
+
+\end{verbatim}
+\end{framed}
+
+\marginnote[40pt]{to open the window and draw 100x100 grid in it}
+
+The earliest interesting patterns in the Game of Life were discovered without the use of computers. The simplest static patterns and repeating patterns  were discovered while tracking the fates of various small starting configurations using graph paper, blackboards, physical game boards  and the like. During this early research, Conway discovered that the R-pentomino failed to stabilize in a small number of generations. In fact, it takes 1103 generations to stabilize, by which time it has a population of 116 and has fired six escaping gliders
+
+Many different types of patterns occur in the Game of Life, including still lifes, oscillators, and patterns that translate themselves across the board . Some frequently occurring examples of these three classes are shown below, with live cells shown in black, and dead cells shown in white.
+Spaceships
+Glider	Game of life animated glider.gif
+Lightweight spaceship 	Game of life animated LWSS.gif
+The "pulsar" is the most common period 3 oscillator. The great majority of naturally occurring oscillators are period 2, like the blinker and the toad, but oscillators of many periods are known to exist, and oscillators of periods 4, 8, 14, 15, 30 and a few others have been seen to arise from random initial conditions. Patterns called "Methuselahs" can evolve for long periods before stabilizing, the first-discovered of which was the R-pentomino. "Diehard" is a pattern that eventually disappears (rather than merely stabilizing) after 130 generations, which is conjectured to be maximal for patterns with seven or fewer cells. "Acorn" takes 5206 generations to generate 633 cells including 13 escaped gliders.
+Acorn
+Conway originally conjectured that no pattern can grow indefinitely—i.e., that for any initial configuration with a finite number of living cells, the population cannot grow beyond some finite upper limit. In the game's original appearance in "Mathematical Games", Conway offered a\$50 prize to the first person who could prove or disprove the conjecture before the end of 1970. The prize was won in November of the same year by a team from the Massachusetts Institute of Technology, led by Bill Gosper; the "Gosper glider gun" produces its first glider on the 15th generation, and another glider every 30th generation from then on. For many years this glider gun was the smallest one known. In 2015 a period-120 gun was discovered that has fewer live cells but a larger bounding box
+
+
+Gosper glider gun
+Smaller patterns were later found that also exhibit infinite growth. All three of the following patterns grow indefinitely: the first two create one "block-laying switch engine" each, while the third creates two. The first has only 10 live cells . The second fits in a 5 × 5 square. The third is only one cell high:
+
+Game of life infinite1.svg     Game of life infinite2.svg
+
+Game of life infinite3.svg
+Later discoveries included other "guns", which are stationary, and which shoot out gliders or other spaceships; "puffers", which move along leaving behind a trail of debris; and "rakes", which move and emit spaceships Gosper also constructed the first pattern with an asymptotically optimal quadratic growth rate, called a "breeder", or "lobster", which worked by leaving behind a trail of guns.
+
+It is possible for gliders to interact with other objects in interesting ways. For example, if two gliders are shot at a block in just the right way, the block will move closer to the source of the gliders. If three gliders are shot in just the right way, the block will move farther away. This "sliding block memory" can be used to simulate a counter. It is possible to construct logic gates such as AND, OR and NOT using gliders. It is possible to build a pattern that acts like a finite state machine connected to two counters. This has the same computational power as a universal Turing machine, so the Game of Life is theoretically as powerful as any computer with unlimited memory and no time constraints: it is Turing complete.
+
+Furthermore, a pattern can contain a collection of guns that fire gliders in such a way as to construct new objects, including copies of the original pattern. A "universal constructor" can be built which contains a Turing complete computer, and which can build many types of complex objects, including more copies of itself
