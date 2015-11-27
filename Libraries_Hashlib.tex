@@ -1,0 +1,35 @@
+\chapter{Hashlib Library}
+
+
+The hash library is a library that comes packaged by default with
+Python, and allows for hashes in MD5, SHA-1, and SHA-2 family to be
+computed within Python. Hashes are a one-way algorithm that allow
+for, say, a document to have its own unique identity. They are commonly
+used for this purpose of identification for security of data, and
+for proof of work.
+
+
+\section{hashlib.sha256(b''string'').hexdigest()}
+
+Obtains the hex digest of a byte string hashed with the SHA-256 algorithm.
+
+\begin{verbatim}
+>>> import hashlib 
+>>> hashlib.sha256(b"Final Preparation Document").hexdigest 
+'e26e7d89792dbb2812253aebd3208123a9673f3620d2d1cd4f213d604866c738'
+\end{verbatim}
+
+
+
+\section{hashlib.md5(b''string'').hexdigest()}
+
+Obtains the hex digest of a byte string hashed with the MD5 algorithm.
+Note that MD5 has trouble with collisions, and is not a very secure
+algorithm. SHA-256 is preferable for security.
+
+\begin{verbatim}
+>>> import hashlib 
+>>> hashlib.md5(b"Final Preparation Document").hexdigest() 
+'584c916050194c4985fef0b0dcca1398'
+\end{verbatim}
+
